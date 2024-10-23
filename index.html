@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacked!</title>
     <style>
         body {
@@ -16,7 +18,24 @@
     </style>
 </head>
 <body>
+
     <h1>You've been hacked!</h1>
     <p>This is a demo of how phishing can work. Be cautious when scanning QR codes!</p>
+
+    <!-- Visitor counter -->
+    <p>Total visitors during this session: <span id="counter">1</span></p>
+
+    <script>
+        // Simple visitor counter using local storage (not persistent across devices)
+        if (localStorage.getItem('page_views')) {
+            localStorage.setItem('page_views', Number(localStorage.getItem('page_views')) + 1);
+        } else {
+            localStorage.setItem('page_views', 1);
+        }
+
+        // Display the counter value
+        document.getElementById('counter').innerText = localStorage.getItem('page_views');
+    </script>
+
 </body>
 </html>
